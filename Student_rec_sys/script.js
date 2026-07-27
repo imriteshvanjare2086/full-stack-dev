@@ -48,7 +48,6 @@ btn.onclick = function () {
     }
 
     document.getElementById("result").innerHTML = output;
-
     document.getElementById("name").value = "";
     document.getElementById("roll").value = "";
     document.getElementById("physics").value = "";
