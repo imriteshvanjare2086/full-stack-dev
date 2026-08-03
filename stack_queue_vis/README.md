@@ -4,7 +4,7 @@ This project visually demonstrates the working of
 **Stack** and **Queue** data structures using JavaScript.
 
 ## Features
-- Push and Pop operations for Stack
+- Push, Pop and top operations for Stack
 - Enqueue and Dequeue operations for Queue
 - Real-time visual updates
 
