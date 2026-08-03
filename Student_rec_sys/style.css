@@ -12,20 +12,21 @@ body
     font-size: 13px;
     background-color: black;
     color:white;
-    margin-top: 10px;
-    height:30px;
-    width:70px;
+    margin-top: 20px;
+    height:45px;
+    margin-left: 15px;
+    width:90px;
     cursor: pointer;
-    transition: all 0.2s ease,
+    font-size: 15px;
+    transition: all 0.5s ease,
+    font-size 0.5s ease;
+    border-radius: 50px;
 }
 
 #btn:hover
 {
-    font-size: 15px;
-}
-#result
-{
-    gap: 40px;
+    font-size: 17px;
+    background-color: red;
 }
 
 #head
@@ -39,16 +40,13 @@ body
     gap: 40px;
 }
 
-.output-box
+table
 {
-    border-radius: 50px;
-    font-size : 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    font-size : 1rem;
     margin-top: 10px;
-    height: 30px;
-    width: 150px;
+    height: 100px;
+    width: 800px;
     background-color: rgb(255, 252, 252);
     border: 2px solid black;
     font-weight: 500;
@@ -65,5 +63,8 @@ input
     box-shadow: 2px 5px 5px rgb(14, 14, 14);
     border-radius: 50px;
     font-weight: 500;
-    padding-left: 10px;
+    padding-left: 15px;
+    height: 35px;
+    width: 220px;
+    font-size: 16px;
 }

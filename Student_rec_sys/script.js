@@ -29,28 +29,29 @@ btn.onclick = function () {
         }
     }
 
-    // Display
-    let output = `
-        <h2 id="head">Student Info :</h2>
+   let output = `
+    <h2 id="head">Student Info :</h2>
+    <h3>Topper : ${topper.name} (${topper.average.toFixed(2)})</h3>
 
-        <h3>Topper : ${topper.name} (${topper.average.toFixed(2)})</h3>
+    <table border="1" cellspacing="0" cellpadding="10">
+        <tr>
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Average</th>
+        </tr>
+`;
+
+for(let i = 0; i < students.length; i++)
+{
+    output += `
+        <tr>
+            <td>${students[i].name}</td>
+            <td>${students[i].roll}</td>
+            <td>${students[i].average.toFixed(2)}</td>
+        </tr>
     `;
+}
 
-    for(let i = 0; i < students.length; i++)
-    {
-        output += `
-        <div class="res">
-            <div class="output-box">Name : ${students[i].name}</div>
-            <div class="output-box">Roll No : ${students[i].roll}</div>
-            <div class="output-box">Avg : ${students[i].average.toFixed(2)}</div>
-        </div>
-        `;
-    }
-
-    document.getElementById("result").innerHTML = output;
-    document.getElementById("name").value = "";
-    document.getElementById("roll").value = "";
-    document.getElementById("physics").value = "";
-    document.getElementById("chemistry").value = "";
-    document.getElementById("maths").value = "";
+output += `</table>`;
+document.getElementById("result").innerHTML =  output;
 };
