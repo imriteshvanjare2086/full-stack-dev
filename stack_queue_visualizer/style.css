@@ -1,0 +1,235 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body 
+{
+  background-color: rgb(96, 120, 131);
+  min-height: 100vh;
+}
+
+header 
+{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  height: 60px;
+  width: 100%;
+  background-color: rgb(23, 51, 63);
+  box-shadow: 0 0 20px aqua;
+  color: rgb(138, 237, 255);
+}
+
+.main 
+{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 40px;
+  gap: 30px;
+}
+
+.stack 
+{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: rgb(138, 237, 255);
+  font-size: 2rem;
+  margin: 30px;
+  width: 40%;
+  background-color: rgb(36, 66, 80);
+  text-align: center;
+  box-shadow: 0 0 20px aqua;
+  padding: 20px;
+  border-radius: 40px;
+}
+
+
+.stack1 
+{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.stack1 input 
+{
+  background-color: rgb(218, 212, 212);
+  font-weight: 550;
+  box-shadow: 2px 2px 5px white;
+  font-size: 1rem;
+  border: 2px solid rgb(137, 128, 128);
+  height: 40px;
+  width: 100%;
+  max-width: 160px;
+  text-align: center;
+  border-radius: 40px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.stack1 button 
+{
+  background-color: rgb(128, 187, 255);
+  font-weight: 550;
+  box-shadow: 2px 2px 5px white;
+  font-size: 1rem;
+  border: 2px solid rgb(137, 128, 128);
+  height: 40px;
+  width: 100%;
+  max-width: 100px;
+  border-radius: 40px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.stack ::placeholder 
+{
+  font-size: 1rem;
+  font-weight: 550;
+  color: black;
+}
+
+
+.stack .container 
+{
+  color: black;
+  margin: 40px auto;
+  height: 220px;
+  width: 80%;
+  max-width: 300px;
+  background-color: rgb(235, 229, 229);
+  border: 2.5px dashed rgb(0, 0, 0);
+}
+
+
+.Queue 
+{
+  background: transparent;
+  color: rgb(138, 237, 255);
+  font-size: 2rem;
+  margin: 30px;
+  width: 40%;
+  background-color: rgb(36, 66, 80);
+  text-align: center;
+  padding: 20px;
+  border-radius: 40px;
+  box-shadow: 0 0 20px aqua;
+}
+
+.Queue1 
+{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 35px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.Queue1 input 
+{
+  background-color: rgb(218, 212, 212);
+  font-weight: 550;
+  box-shadow: 2px 2px 5px white;
+  font-size: 1rem;
+  border: 2px solid rgb(137, 128, 128);
+  border-radius: 40px;
+  height: 40px;
+  width: 100%;
+  max-width: 160px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.Queue1 button 
+{
+  background-color: rgb(128, 187, 255);
+  font-weight: 550;
+  box-shadow: 2px 2px 5px white;
+  border: 2px solid rgb(137, 128, 128);
+  font-size: 1rem;
+  border-radius: 40px;
+  height: 40px;
+  width: 100%;
+  max-width: 100px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.Queue ::placeholder 
+{
+  font-size: 1rem;
+  font-weight: 550;
+  color: black;
+}
+
+
+.Queue .container 
+{
+  margin: 40px auto;
+  height: 100px;
+  width: 90%;
+  max-width: 350px;
+  background-color: rgb(235, 229, 229);
+  border: 2.5px dashed rgb(0, 0, 0);
+  color: black;
+}
+
+
+footer 
+{
+  font-size: 1.2rem;
+  height: 50px;
+  width: 100%;
+  background-color: rgb(23, 51, 63);
+  color: rgb(138, 237, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  box-shadow: 0 0 20px aqua;
+}
+
+
+h1 {
+  color: rgb(69, 153, 66);
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+
+@media (max-width: 900px) 
+{
+  .main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stack,
+  .Queue {
+    width: 90%;
+  }
+}
+
+@media (max-width: 500px) 
+{
+  header 
+  {
+    font-size: 1.4rem;
+  }
+
+  h2 
+  {
+    font-size: 1.5rem;
+  }
+
+  .stack,.Queue 
+  {
+    font-size: 1.5rem;
+  }
+}
