@@ -1,0 +1,98 @@
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.logo
+{
+    width:100px;
+    height:70px;
+    background-image:url("https://motionbgs.com/media/1803/spider-man-black-logo.jpg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:contain;
+}
+
+.head
+{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 40px;
+    height:70px;
+    background:#0f1111;
+    color:white;
+}
+
+.auth
+{
+    display:flex;
+    gap:50px;
+}
+
+.auth p
+{
+    cursor:pointer;
+    transition:.3s;
+}
+
+.hero
+{
+    height:calc(100vh - 70px);
+    background-image:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.overlay
+{
+    background:rgba(0,0,0,0.55);
+    color:white;
+    padding:50px;
+    border-radius:15px;
+    width:60%;
+    text-align:center;
+}
+
+.overlay h1
+{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.overlay p
+{
+    font-size:20px;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.overlay button
+{
+    padding:15px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:#ff9900;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.overlay button:hover
+{
+    background:#e68a00;
+    transform:scale(1.05);
+}
+
+a
+{
+    color: white;
+    text-decoration: none;
+}
