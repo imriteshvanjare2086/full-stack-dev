@@ -101,5 +101,4 @@ function renderQueue() {
     div.style.borderRadius = "5px";
     queueContainer.appendChild(div);
   });
-  
 }
