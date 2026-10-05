@@ -10,9 +10,14 @@ A collection of my Full Stack Development projects built using the **MERN Stack*
 - HTML
 - CSS
 - JavaScript
+- Mongo db
+- Express
+- React
+- Node js
 
 ## Projects
 
+- Basic html page
 - Student Record System
 - Calculator App
 - Landing Page
