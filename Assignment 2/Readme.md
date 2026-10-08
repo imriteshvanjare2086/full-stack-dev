@@ -14,7 +14,6 @@ Sets the Git email.
 git config --list
 Shows Git configuration settings.
 
-
 ## Repository
 
 git init
