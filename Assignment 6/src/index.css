@@ -1,0 +1,21 @@
+.container 
+{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter 
+{
+  border: 20px solid black;
+  text-align: center;
+}
+
+button 
+{
+  color: white;
+  font-size: 1rem;
+  background-color: black;
+  margin: 0 10px;
+}
