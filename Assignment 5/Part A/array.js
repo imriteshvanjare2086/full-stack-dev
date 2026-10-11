@@ -1,60 +1,54 @@
 const express = require("express");
+const mongoose = require("mongoose");
 
 const app = express();
 
 app.use(express.json());
 
-const arr = [5, 2, 8, 1, 9, 3];
+// Connect to MongoDB
+mongoose.connect("mongodb://127.0.0.1:27017/studentDB")
+  .then(() => console.log("MongoDB connected"))
+  .catch(err => console.log(err));
 
-// Get original array
-app.get("/array", (req, res) => {
-  res.json(arr);
+// Student Schema
+const studentSchema = new mongoose.Schema({
+  name: String,
+  city: String,
+  marks: Number
 });
 
-// Sort ascending
-app.get("/array/sort", (req, res) => {
-  const result = [...arr].sort((a, b) => a - b);
-  res.json(result);
+// Student Model
+const Student = mongoose.model("Student", studentSchema);
+
+// GET - show all students
+app.get("/students", async (req, res) => {
+  const students = await Student.find();
+  res.json(students);
 });
 
-// Sort descending
-app.get("/array/sort-desc", (req, res) => {
-  const result = [...arr].sort((a, b) => b - a);
-  res.json(result);
+// POST - add a student
+app.post("/students", async (req, res) => {
+  const student = await Student.create(req.body);
+  res.send("Student added");
 });
 
-// Reverse
-app.get("/array/reverse", (req, res) => {
-  const result = [...arr].reverse();
-  res.json(result);
+// PUT - update a student
+app.put("/students/:id", async (req, res) => {
+  await Student.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { runValidators: true }
+  );
+  res.send("Student updated");
 });
 
-// Map
-app.get("/array/map", (req, res) => {
-  const result = arr.map((num) => num * 2);
-  res.json(result);
+// DELETE - delete a student
+app.delete("/students/:id", async (req, res) => {
+  await Student.findByIdAndDelete(req.params.id);
+  res.send("Student deleted");
 });
 
-// Filter
-app.get("/array/filter", (req, res) => {
-  const result = arr.filter((num) => num > 5);
-  res.json(result);
-});
-
-// Find
-app.get("/array/find", (req, res) => {
-  const result = arr.find((num) => num > 5);
-  res.json(result);
-});
-
-// Includes
-app.get("/array/includes/:num", (req, res) => {
-  const num = Number(req.params.num);
-  const result = arr.includes(num);
-
-  res.json(result);
-});
-
+// Start server
 app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+  console.log("Server started on port 3000");
 });
