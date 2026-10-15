@@ -2,75 +2,43 @@
 import { useState } from "react";
 import "./App.css";
 
-export default function App() {
+function App() {
   const [task, setTask] = useState("");
-  const [todos, setTodos] = useState([]);
-  const [editId, setEditId] = useState(null);
+  const [list, setList] = useState([]);
+  const [editIndex, setEditIndex] = useState(-1);
 
-  function addTask(e) {
-    e.preventDefault();
+  function addTask() {
+    if (task === "") {
+      alert("Please enter a task");
+      return;
+    }
 
-    if (!task.trim()) return;
-
-    if (editId !== null) {
-      setTodos(
-        todos.map((todo) =>
-          todo.id === editId
-            ? { ...todo, text: task.trim() }
-            : todo
-        )
-      );
-      setEditId(null);
+    if (editIndex === -1) {
+      setList([...list, task]);
     } else {
-      setTodos([
-        ...todos,
-        {
-          id: Date.now(),
-          text: task.trim(),
-          completed: false,
-        },
-      ]);
+      list[editIndex] = task;
+      setList([...list]);
+      setEditIndex(-1);
     }
 
     setTask("");
   }
 
-  function toggleTask(id) {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id
-          ? { ...todo, completed: !todo.completed }
-          : todo
-      )
-    );
+  function editTask(index) {
+    setTask(list[index]);
+    setEditIndex(index);
   }
 
-  function deleteTask(id) {
-    setTodos(todos.filter((todo) => todo.id !== id));
-
-    if (editId === id) {
-      setEditId(null);
-      setTask("");
-    }
+  function deleteTask(index) {
+    setList(list.filter((item, i) => i !== index));
   }
-
-  function editTask(todo) {
-    setTask(todo.text);
-    setEditId(todo.id);
-  }
-
-  const remaining = todos.filter(
-    (todo) => !todo.completed
-  ).length;
 
   return (
     <div className="container">
-      <div className="header">
-        <h1>My Todo List</h1>
-        <p>Organize your day, one task at a time.</p>
-      </div>
+      <h1>My Todo List</h1>
+      <p>Manage your daily tasks easily</p>
 
-      <form onSubmit={addTask} className="todo-form">
+      <div className="input-box">
         <input
           type="text"
           placeholder="Enter your task..."
@@ -78,64 +46,40 @@ export default function App() {
           onChange={(e) => setTask(e.target.value)}
         />
 
-        <button type="submit">
-          {editId !== null ? "Update" : "Add Task"}
+        <button className="add-btn" onClick={addTask}>
+          {editIndex === -1 ? "Add Task" : "Update Task"}
         </button>
-      </form>
-
-      <div className="task-summary">
-        <span>{todos.length} Total Tasks</span>
-        <span>{remaining} Remaining</span>
       </div>
 
-      {todos.length === 0 ? (
-        <div className="empty-state">
-          <div className="empty-icon">✓</div>
-          <h3>No tasks yet</h3>
-          <p>Add a task above to get started!</p>
-        </div>
+      <h2>My Tasks</h2>
+
+      {list.length === 0 ? (
+        <p>No tasks added yet!</p>
       ) : (
-        <ul className="todo-list">
-          {todos.map((todo) => (
-            <li
-              key={todo.id}
-              className={todo.completed ? "completed" : ""}
-            >
-              <label className="task-content">
-                <input
-                  type="checkbox"
-                  checked={todo.completed}
-                  onChange={() => toggleTask(todo.id)}
-                />
+        list.map((item, index) => (
+          <div className="task" key={index}>
+            <span>{item}</span>
 
-                <span>{todo.text}</span>
-              </label>
+            <div>
+              <button
+                className="edit-btn"
+                onClick={() => editTask(index)}
+              >
+                Edit
+              </button>
 
-              <div className="actions">
-                <button
-                  type="button"
-                  className="edit-btn"
-                  onClick={() => editTask(todo)}
-                >
-                  Edit
-                </button>
-
-                <button
-                  type="button"
-                  className="delete-btn"
-                  onClick={() => deleteTask(todo.id)}
-                >
-                  Delete
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
+              <button
+                className="delete-btn"
+                onClick={() => deleteTask(index)}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        ))
       )}
-
-      <div className="footer">
-        Keep going. You're doing great!
-      </div>
     </div>
   );
 }
+
+export default App;
