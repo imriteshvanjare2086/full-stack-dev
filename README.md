@@ -2,7 +2,7 @@
 
 Owner : Ritesh Vanjare
 This folder include all full stack development files.
-Tech stack : MERN stack
+Tech stack : MERN stack development
 # Full Stack Development
 
 A collection of my Full Stack Development projects built using the **MERN Stack** and modern web technologies.
